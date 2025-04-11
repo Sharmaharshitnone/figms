@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeSnippet Context - Low Fidelity Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wireframe">
+        <!-- Navigation Bar -->
+        <header class="nav">
+            <div class="logo">CodeSnippet Context</div>
+            <div class="nav-links">
+                <div class="nav-item">Home</div>
+                <div class="nav-item">Browse</div>
+                <div class="nav-item">Search</div>
+                <div class="nav-item">Login</div>
+                <div class="nav-item active">Sign Up</div>
+            </div>
+        </header>
+
+        <!-- Tab Navigation for different wireframe pages -->
+        <div class="tab-navigation">
+            <div class="tab active" data-tab="landing">Landing Page</div>
+            <div class="tab" data-tab="login">Login/Signup</div>
+            <div class="tab" data-tab="snippet-form">Create Snippet</div>
+            <div class="tab" data-tab="view-snippet">View Snippet</div>
+            <div class="tab" data-tab="search-results">Search Results</div>
+        </div>
+
+        <!-- Landing Page Wireframe -->
+        <div class="wireframe-content active" id="landing">
+            <div class="hero">
+                <div class="hero-text">
+                    <h1>Code Snippets With Context</h1>
+                    <p>Save, discover, and discuss code snippets with structured explanations</p>
+                </div>
+                <div class="hero-search">
+                    <input type="text" placeholder="Search for snippets...">
+                    <button>Search</button>
+                </div>
+            </div>
+            
+            <div class="section-title">Featured Snippets</div>
+            <div class="snippets-grid">
+                <div class="snippet-card">
+                    <div class="snippet-title">React useEffect Hook Example</div>
+                    <div class="snippet-language">JavaScript</div>
+                    <div class="snippet-code-preview">useEffect(() => { ... })</div>
+                </div>
+                <div class="snippet-card">
+                    <div class="snippet-title">Python List Comprehension</div>
+                    <div class="snippet-language">Python</div>
+                    <div class="snippet-code-preview">[x for x in range(10)]</div>
+                </div>
+                <div class="snippet-card">
+                    <div class="snippet-title">SQL Join Query</div>
+                    <div class="snippet-language">SQL</div>
+                    <div class="snippet-code-preview">SELECT * FROM table1 JOIN...</div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <button class="cta-button">Start Creating Snippets</button>
+                <button class="cta-button-secondary">Browse Library</button>
+            </div>
+        </div>
+
+        <!-- Login/Signup Wireframe -->
+        <div class="wireframe-content" id="login">
+            <div class="form-container">
+                <div class="form-tabs">
+                    <div class="form-tab active">Login</div>
+                    <div class="form-tab">Sign Up</div>
+                </div>
+                <div class="form">
+                    <div class="form-group">
+                        <label>Username or Email</label>
+                        <input type="text" placeholder="Enter your username or email">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" placeholder="Enter your password">
+                    </div>
+                    <div class="form-button">
+                        <button>Login</button>
+                    </div>
+                    <div class="oauth-options">
+                        <div class="oauth-title">Or login with</div>
+                        <div class="oauth-buttons">
+                            <button class="oauth-button">Google</button>
+                            <button class="oauth-button">GitHub</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Snippet Form Wireframe -->
+        <div class="wireframe-content" id="snippet-form">
+            <h2>Create New Code Snippet</h2>
+            <div class="form">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" placeholder="Give your snippet a descriptive title">
+                </div>
+                <div class="form-group">
+                    <label>Programming Language</label>
+                    <select>
+                        <option>JavaScript</option>
+                        <option>Python</option>
+                        <option>Java</option>
+                        <option>C++</option>
+                        <option>SQL</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <textarea class="code-input" placeholder="Paste your code here"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Purpose/Goal</label>
+                    <textarea placeholder="Explain what this snippet is designed to accomplish"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Usage Example</label>
+                    <textarea placeholder="Show how this snippet would be used in context"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Key Concepts/Why it Works</label>
+                    <textarea placeholder="Explain the core logic, language features used, or algorithms involved"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Potential Gotchas/Alternatives</label>
+                    <textarea placeholder="Notes on edge cases, limitations, or other ways to achieve the same goal"></textarea>
+                </div>
+                <div class="form-button">
+                    <button>Submit Snippet</button>
+                    <button class="secondary">Save as Draft</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Snippet Wireframe -->
+        <div class="wireframe-content" id="view-snippet">
+            <div class="snippet-header">
+                <h2>React useEffect Cleanup Pattern</h2>
+                <div class="snippet-meta">
+                    <div class="language-tag">JavaScript</div>
+                    <div class="author">by JohnDev</div>
+                    <div class="date">April 10, 2025</div>
+                </div>
+            </div>
+            
+            <div class="snippet-code-block">
+                <div class="code-header">
+                    <div>Code:</div>
+                    <button>Copy</button>
+                </div>
+                <pre class="code">useEffect(() => {
+  const subscription = someAPI.subscribe();
+  
+  return () => {
+    subscription.unsubscribe();
+  };
+}, [dependency]);</pre>
+            </div>
+
+            <div class="context-sections">
+                <div class="context-section">
+                    <h3>Purpose/Goal</h3>
+                    <p>This pattern demonstrates how to properly clean up side effects in React's useEffect hook to prevent memory leaks.</p>
+                </div>
+                
+                <div class="context-section">
+                    <h3>Usage Example</h3>
+                    <p>For instance, when subscribing to external data sources or setting up event listeners that need to be removed when the component unmounts.</p>
+                </div>
+                
+                <div class="context-section">
+                    <h3>Key Concepts/Why it Works</h3>
+                    <p>The useEffect hook accepts a function that can return a cleanup function. React will call this cleanup function before the component unmounts or before re-running the effect due to a dependency change.</p>
+                </div>
+                
+                <div class="context-section">
+                    <h3>Potential Gotchas/Alternatives</h3>
+                    <p>Forgetting to clean up subscriptions can cause memory leaks. Make sure dependency arrays are correctly specified to avoid stale closures.</p>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h3>Comments (3)</h3>
+                <div class="comment">
+                    <div class="comment-header">
+                        <div class="comment-author">ReactDev</div>
+                        <div class="comment-date">April 11, 2025</div>
+                    </div>
+                    <div class="comment-content">
+                        Great explanation! You might also want to mention that the cleanup function runs not only on unmount but also before every re-render with changed dependencies.
+                    </div>
+                </div>
+                <div class="add-comment">
+                    <textarea placeholder="Add your comment"></textarea>
+                    <button>Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Results Wireframe -->
+        <div class="wireframe-content" id="search-results">
+            <div class="search-container">
+                <input type="text" placeholder="Search for snippets" value="useEffect">
+                <div class="filters">
+                    <select>
+                        <option>All Languages</option>
+                        <option selected>JavaScript</option>
+                        <option>Python</option>
+                    </select>
+                    <select>
+                        <option>Sort by: Relevance</option>
+                        <option>Sort by: Recent</option>
+                        <option>Sort by: Popular</option>
+                    </select>
+                </div>
+                <button>Search</button>
+            </div>
+            
+            <div class="results-info">
+                <p>Found 13 results for "useEffect"</p>
+            </div>
+            
+            <div class="search-results-list">
+                <div class="result-item">
+                    <div class="result-title">React useEffect Cleanup Pattern</div>
+                    <div class="result-preview">useEffect(() => { const subscription = someAPI.subscribe(); return () => { subscription.unsubscribe(); }; }, [dependency]);</div>
+                    <div class="result-meta">
+                        <div class="language-tag">JavaScript</div>
+                        <div class="author">by JohnDev</div>
+                        <div class="date">April 10, 2025</div>
+                    </div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-title">useEffect with async function</div>
+                    <div class="result-preview">useEffect(() => { const fetchData = async () => { const result = await api.getData(); setData(result); }; fetchData(); }, []);</div>
+                    <div class="result-meta">
+                        <div class="language-tag">JavaScript</div>
+                        <div class="author">by SaraDev</div>
+                        <div class="date">April 5, 2025</div>
+                    </div>
+                </div>
+                
+                <div class="result-item">
+                    <div class="result-title">Skip useEffect on initial render</div>
+                    <div class="result-preview">useEffect(() => { if (isFirstRender.current) { isFirstRender.current = false; return; } // Effect code here }, [dependency]);</div>
+                    <div class="result-meta">
+                        <div class="language-tag">JavaScript</div>
+                        <div class="author">by ReactNinja</div>
+                        <div class="date">March 27, 2025</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pagination">
+                <div class="pagination-item active">1</div>
+                <div class="pagination-item">2</div>
+                <div class="pagination-item">3</div>
+                <div class="pagination-item">4</div>
+                <div class="pagination-item">Next</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
