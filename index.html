@@ -3,81 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CodeSnippet Context - Low Fidelity Design</title>
+    <title>AI Capstone Concept Tracker - Low Fidelity Design</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="wireframe">
         <!-- Navigation Bar -->
         <header class="nav">
-            <div class="logo">CodeSnippet Context</div>
+            <div class="logo">AI Capstone Tracker</div>
             <div class="nav-links">
-                <div class="nav-item">Home</div>
-                <div class="nav-item">Browse</div>
-                <div class="nav-item">Search</div>
-                <div class="nav-item">Login</div>
-                <div class="nav-item active">Sign Up</div>
+                <div class="nav-item"><a href="#1">Dashboard</a></div>
+                <div class="nav-item"><a href="#2">Login</a></div>
+                <div class="nav-item"><a href="#3">Projects</a></div>
+                <div class="nav-item"><a href="#4">Concept Proof</a></div>
+                <div class="menu-toggle" id="menu-toggle">≡</div>
             </div>
         </header>
 
+        <!-- Mobile Menu (hidden by default) -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-nav-item"><a href="#1">Dashboard</a></div>
+            <div class="mobile-nav-item"><a href="#2">Login</a></div>
+            <div class="mobile-nav-item"><a href="#3">Projects</a></div>
+            <div class="mobile-nav-item"><a href="#4">Concept Proof</a></div>
+        </div>
+
         <!-- Tab Navigation for different wireframe pages -->
         <div class="tab-navigation">
-            <div class="tab active" data-tab="landing">Landing Page</div>
-            <div class="tab" data-tab="login">Login/Signup</div>
-            <div class="tab" data-tab="snippet-form">Create Snippet</div>
-            <div class="tab" data-tab="view-snippet">View Snippet</div>
-            <div class="tab" data-tab="search-results">Search Results</div>
+            <div class="tab" data-tab="login">Login/Register</div>
+            <div class="tab active" data-tab="dashboard">Dashboard</div>
+            <div class="tab" data-tab="project-view">Project View</div>
+            <div class="tab" data-tab="concept-proof">Add Concept Proof</div>
+            <div class="tab" data-tab="mobile-view">Mobile View</div>
         </div>
 
-        <!-- Landing Page Wireframe -->
-        <div class="wireframe-content active" id="landing">
-            <div class="hero">
-                <div class="hero-text">
-                    <h1>Code Snippets With Context</h1>
-                    <p>Save, discover, and discuss code snippets with structured explanations</p>
-                </div>
-                <div class="hero-search">
-                    <input type="text" placeholder="Search for snippets...">
-                    <button>Search</button>
-                </div>
-            </div>
-            
-            <div class="section-title">Featured Snippets</div>
-            <div class="snippets-grid">
-                <div class="snippet-card">
-                    <div class="snippet-title">React useEffect Hook Example</div>
-                    <div class="snippet-language">JavaScript</div>
-                    <div class="snippet-code-preview">useEffect(() => { ... })</div>
-                </div>
-                <div class="snippet-card">
-                    <div class="snippet-title">Python List Comprehension</div>
-                    <div class="snippet-language">Python</div>
-                    <div class="snippet-code-preview">[x for x in range(10)]</div>
-                </div>
-                <div class="snippet-card">
-                    <div class="snippet-title">SQL Join Query</div>
-                    <div class="snippet-language">SQL</div>
-                    <div class="snippet-code-preview">SELECT * FROM table1 JOIN...</div>
-                </div>
-            </div>
-
-            <div class="cta-section">
-                <button class="cta-button">Start Creating Snippets</button>
-                <button class="cta-button-secondary">Browse Library</button>
-            </div>
-        </div>
-
-        <!-- Login/Signup Wireframe -->
+        <!-- Login/Register Wireframe -->
         <div class="wireframe-content" id="login">
             <div class="form-container">
                 <div class="form-tabs">
                     <div class="form-tab active">Login</div>
-                    <div class="form-tab">Sign Up</div>
+                    <div class="form-tab">Register</div>
                 </div>
                 <div class="form">
                     <div class="form-group">
-                        <label>Username or Email</label>
-                        <input type="text" placeholder="Enter your username or email">
+                        <label>Email</label>
+                        <input type="email" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
                         <label>Password</label>
@@ -86,188 +56,306 @@
                     <div class="form-button">
                         <button>Login</button>
                     </div>
-                    <div class="oauth-options">
-                        <div class="oauth-title">Or login with</div>
-                        <div class="oauth-buttons">
-                            <button class="oauth-button">Google</button>
-                            <button class="oauth-button">GitHub</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Wireframe -->
+        <div class="wireframe-content active" id="dashboard">
+            <div class="dashboard-header">
+                <h1>Welcome, Student!</h1>
+                <p>Track your capstone project progress</p>
+            </div>
+            
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-title">Concepts Completed</div>
+                    <div class="stat-value">7/21</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Level 1 Concepts</div>
+                    <div class="stat-value">5/15</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Level 2 Concepts</div>
+                    <div class="stat-value">2/6</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-title">Days Remaining</div>
+                    <div class="stat-value">42</div>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <h2>Your Projects</h2>
+                <button>+ New Project</button>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card active">
+                    <div class="project-title">CodeSnippet Context</div>
+                    <div class="project-description">A collaborative code snippet library with structured context</div>
+                    <div class="project-stats">
+                        <div>7 Concepts</div>
+                        <div>Created: April 1, 2025</div>
+                    </div>
+                </div>
+                <div class="project-card add-new">
+                    <div class="add-icon">+</div>
+                    <div>Create New Project</div>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <h2>Recent Activity</h2>
+            </div>
+
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-icon">✓</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Added Concept Proof: Database Schema Created</div>
+                        <div class="activity-date">Today at 2:30 PM</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">✓</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Added Concept Proof: POST API Used</div>
+                        <div class="activity-date">Today at 11:15 AM</div>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon">✓</div>
+                    <div class="activity-content">
+                        <div class="activity-title">Created Low-Fid Design</div>
+                        <div class="activity-date">Yesterday at 4:45 PM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project View Wireframe -->
+        <div class="wireframe-content" id="project-view">
+            <div class="project-header">
+                <div class="breadcrumb">Dashboard > Projects > CodeSnippet Context</div>
+                <h1>CodeSnippet Context</h1>
+                <div class="project-meta">
+                    <div>Created: April 1, 2025</div>
+                    <div>Last Updated: April 10, 2025</div>
+                </div>
+                <p class="project-description">A collaborative code snippet library with structured context and explanations</p>
+            </div>
+
+            <div class="section-divider">
+                <h2>Project Details</h2>
+                <button>Edit</button>
+            </div>
+            
+            <div class="project-details">
+                <div class="detail-group">
+                    <label>Description</label>
+                    <p>A web application where users can save, discover, and discuss code snippets with structured context.</p>
+                </div>
+                <div class="detail-group">
+                    <label>Problem Solved</label>
+                    <p>Understanding the why, the context, potential edge cases, or alternatives for a snippet is often missing or requires separate discussion.</p>
+                </div>
+                <div class="detail-group">
+                    <label>Target Audience</label>
+                    <p>Developers, learners, teams or study groups wanting a shared library of code patterns.</p>
+                </div>
+                <div class="detail-group">
+                    <label>Technologies</label>
+                    <div class="tags">
+                        <div class="tag">React</div>
+                        <div class="tag">Node.js</div>
+                        <div class="tag">MongoDB</div>
+                        <div class="tag">Express</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider">
+                <h2>Concept Proofs</h2>
+                <button>+ Add Proof</button>
+            </div>
+
+            <div class="tabs">
+                <div class="tab-item active">All (7)</div>
+                <div class="tab-item">Level 1 (5)</div>
+                <div class="tab-item">Level 2 (2)</div>
+                <div class="tab-item">Pending (1)</div>
+            </div>
+
+            <div class="concepts-list">
+                <div class="concept-item completed">
+                    <div class="concept-header">
+                        <div class="concept-name">Created a low-fid design</div>
+                        <div class="concept-level">Level 1</div>
+                        <div class="concept-status">✓ Approved</div>
+                    </div>
+                    <div class="concept-details">
+                        <div class="artifact-link">Artifact: <a href="#">figma.com/file/concept-design</a></div>
+                        <div class="video-link">Video: <a href="#">drive.google.com/video-walkthrough</a></div>
+                    </div>
+                </div>
+                
+                <div class="concept-item completed">
+                    <div class="concept-header">
+                        <div class="concept-name">Setting up a Github project</div>
+                        <div class="concept-level">Level 1</div>
+                        <div class="concept-status">✓ Approved</div>
+                    </div>
+                    <div class="concept-details">
+                        <div class="artifact-link">Artifact: <a href="#">github.com/user/codesnippet-context</a></div>
+                    </div>
+                </div>
+                
+                <div class="concept-item completed">
+                    <div class="concept-header">
+                        <div class="concept-name">Database schema created</div>
+                        <div class="concept-level">Level 1</div>
+                        <div class="concept-status">✓ Approved</div>
+                    </div>
+                    <div class="concept-details">
+                        <div class="artifact-link">Artifact: <a href="#">github.com/user/codesnippet-context/pull/3</a></div>
+                    </div>
+                </div>
+                
+                <div class="concept-item pending">
+                    <div class="concept-header">
+                        <div class="concept-name">Used a testing framework</div>
+                        <div class="concept-level">Level 2</div>
+                        <div class="concept-status">⏳ Under Review</div>
+                    </div>
+                    <div class="concept-details">
+                        <div class="artifact-link">Artifact: <a href="#">github.com/user/codesnippet-context/pull/7</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Concept Proof Wireframe -->
+        <div class="wireframe-content" id="concept-proof">
+            <div class="breadcrumb">Dashboard > Projects > CodeSnippet Context > Add Concept Proof</div>
+            <h1>Add New Concept Proof</h1>
+            
+            <div class="form">
+                <div class="form-group">
+                    <label>Select Concept</label>
+                    <select>
+                        <option>-- Select a concept --</option>
+                        <optgroup label="Level 1 Concepts">
+                            <option>Created a hi-fid design</option>
+                            <option>GET API used</option>
+                            <option>POST API used</option>
+                            <option>Deployed backend server</option>
+                            <option>Implemented authentication</option>
+                        </optgroup>
+                        <optgroup label="Level 2 Concepts">
+                            <option>Used a testing framework</option>
+                            <option>Implemented Dockerfile support</option>
+                            <option>Implemented LLM/AI-autocomplete functionality</option>
+                        </optgroup>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Artifact Link</label>
+                    <input type="text" placeholder="GitHub PR URL, Figma link, or other relevant URL">
+                    <div class="helper-text">Link to your work that demonstrates this concept</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Video Link (if applicable)</label>
+                    <input type="text" placeholder="Google Drive or YouTube link to your explanation video">
+                    <div class="helper-text">Some concepts require a video explanation</div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea placeholder="Add any context or notes for the evaluator"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Completion Date</label>
+                    <input type="date">
+                </div>
+                
+                <div class="form-button">
+                    <button>Submit for Review</button>
+                    <button class="secondary">Save Draft</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile View Wireframe -->
+        <div class="wireframe-content" id="mobile-view">
+            <div class="mobile-frame">
+                <div class="mobile-header">
+                    <div class="mobile-time">9:41</div>
+                </div>
+                <div class="mobile-app">
+                    <div class="mobile-nav">
+                        <div class="mobile-logo">AI Capstone</div>
+                        <div class="mobile-menu-icon">≡</div>
+                    </div>
+                    
+                    <div class="mobile-content">
+                        <h2>Dashboard</h2>
+                        <div class="mobile-stats">
+                            <div class="mobile-stat">
+                                <div class="stat-title">Completed</div>
+                                <div class="stat-value">7/21</div>
+                            </div>
+                            <div class="mobile-stat">
+                                <div class="stat-title">Days Left</div>
+                                <div class="stat-value">42</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mobile-section-title">Your Project</div>
+                        <div class="mobile-project-card">
+                            <div class="mobile-project-title">CodeSnippet Context</div>
+                            <div class="mobile-project-stats">7 Concepts</div>
+                        </div>
+                        
+                        <div class="mobile-section-title">Recent Activity</div>
+                        <div class="mobile-activity">
+                            <div class="mobile-activity-item">
+                                <div class="mobile-activity-title">Added Concept Proof</div>
+                                <div class="mobile-activity-detail">Database Schema Created</div>
+                            </div>
+                            <div class="mobile-activity-item">
+                                <div class="mobile-activity-title">Added Concept Proof</div>
+                                <div class="mobile-activity-detail">POST API Used</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mobile-tab-bar">
+                        <div class="mobile-tab active">
+                            <div class="tab-icon">◼</div>
+                            <div class="tab-text">Home</div>
+                        </div>
+                        <div class="mobile-tab">
+                            <div class="tab-icon">◻</div>
+                            <div class="tab-text">Projects</div>
+                        </div>
+                        <div class="mobile-tab">
+                            <div class="tab-icon">+</div>
+                        </div>
+                        <div class="mobile-tab">
+                            <div class="tab-icon">◻</div>
+                            <div class="tab-text">Concepts</div>
+                        </div>
+                        <div class="mobile-tab">
+                            <div class="tab-icon">◻</div>
+                            <div class="tab-text">Profile</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Create Snippet Form Wireframe -->
-        <div class="wireframe-content" id="snippet-form">
-            <h2>Create New Code Snippet</h2>
-            <div class="form">
-                <div class="form-group">
-                    <label>Title</label>
-                    <input type="text" placeholder="Give your snippet a descriptive title">
-                </div>
-                <div class="form-group">
-                    <label>Programming Language</label>
-                    <select>
-                        <option>JavaScript</option>
-                        <option>Python</option>
-                        <option>Java</option>
-                        <option>C++</option>
-                        <option>SQL</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Code</label>
-                    <textarea class="code-input" placeholder="Paste your code here"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Purpose/Goal</label>
-                    <textarea placeholder="Explain what this snippet is designed to accomplish"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Usage Example</label>
-                    <textarea placeholder="Show how this snippet would be used in context"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Key Concepts/Why it Works</label>
-                    <textarea placeholder="Explain the core logic, language features used, or algorithms involved"></textarea>
-                </div>
-                <div class="form-group">
-                    <label>Potential Gotchas/Alternatives</label>
-                    <textarea placeholder="Notes on edge cases, limitations, or other ways to achieve the same goal"></textarea>
-                </div>
-                <div class="form-button">
-                    <button>Submit Snippet</button>
-                    <button class="secondary">Save as Draft</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- View Snippet Wireframe -->
-        <div class="wireframe-content" id="view-snippet">
-            <div class="snippet-header">
-                <h2>React useEffect Cleanup Pattern</h2>
-                <div class="snippet-meta">
-                    <div class="language-tag">JavaScript</div>
-                    <div class="author">by JohnDev</div>
-                    <div class="date">April 10, 2025</div>
-                </div>
-            </div>
-            
-            <div class="snippet-code-block">
-                <div class="code-header">
-                    <div>Code:</div>
-                    <button>Copy</button>
-                </div>
-                <pre class="code">useEffect(() => {
-  const subscription = someAPI.subscribe();
-  
-  return () => {
-    subscription.unsubscribe();
-  };
-}, [dependency]);</pre>
-            </div>
-
-            <div class="context-sections">
-                <div class="context-section">
-                    <h3>Purpose/Goal</h3>
-                    <p>This pattern demonstrates how to properly clean up side effects in React's useEffect hook to prevent memory leaks.</p>
-                </div>
-                
-                <div class="context-section">
-                    <h3>Usage Example</h3>
-                    <p>For instance, when subscribing to external data sources or setting up event listeners that need to be removed when the component unmounts.</p>
-                </div>
-                
-                <div class="context-section">
-                    <h3>Key Concepts/Why it Works</h3>
-                    <p>The useEffect hook accepts a function that can return a cleanup function. React will call this cleanup function before the component unmounts or before re-running the effect due to a dependency change.</p>
-                </div>
-                
-                <div class="context-section">
-                    <h3>Potential Gotchas/Alternatives</h3>
-                    <p>Forgetting to clean up subscriptions can cause memory leaks. Make sure dependency arrays are correctly specified to avoid stale closures.</p>
-                </div>
-            </div>
-
-            <div class="comments-section">
-                <h3>Comments (3)</h3>
-                <div class="comment">
-                    <div class="comment-header">
-                        <div class="comment-author">ReactDev</div>
-                        <div class="comment-date">April 11, 2025</div>
-                    </div>
-                    <div class="comment-content">
-                        Great explanation! You might also want to mention that the cleanup function runs not only on unmount but also before every re-render with changed dependencies.
-                    </div>
-                </div>
-                <div class="add-comment">
-                    <textarea placeholder="Add your comment"></textarea>
-                    <button>Submit</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Search Results Wireframe -->
-        <div class="wireframe-content" id="search-results">
-            <div class="search-container">
-                <input type="text" placeholder="Search for snippets" value="useEffect">
-                <div class="filters">
-                    <select>
-                        <option>All Languages</option>
-                        <option selected>JavaScript</option>
-                        <option>Python</option>
-                    </select>
-                    <select>
-                        <option>Sort by: Relevance</option>
-                        <option>Sort by: Recent</option>
-                        <option>Sort by: Popular</option>
-                    </select>
-                </div>
-                <button>Search</button>
-            </div>
-            
-            <div class="results-info">
-                <p>Found 13 results for "useEffect"</p>
-            </div>
-            
-            <div class="search-results-list">
-                <div class="result-item">
-                    <div class="result-title">React useEffect Cleanup Pattern</div>
-                    <div class="result-preview">useEffect(() => { const subscription = someAPI.subscribe(); return () => { subscription.unsubscribe(); }; }, [dependency]);</div>
-                    <div class="result-meta">
-                        <div class="language-tag">JavaScript</div>
-                        <div class="author">by JohnDev</div>
-                        <div class="date">April 10, 2025</div>
-                    </div>
-                </div>
-                
-                <div class="result-item">
-                    <div class="result-title">useEffect with async function</div>
-                    <div class="result-preview">useEffect(() => { const fetchData = async () => { const result = await api.getData(); setData(result); }; fetchData(); }, []);</div>
-                    <div class="result-meta">
-                        <div class="language-tag">JavaScript</div>
-                        <div class="author">by SaraDev</div>
-                        <div class="date">April 5, 2025</div>
-                    </div>
-                </div>
-                
-                <div class="result-item">
-                    <div class="result-title">Skip useEffect on initial render</div>
-                    <div class="result-preview">useEffect(() => { if (isFirstRender.current) { isFirstRender.current = false; return; } // Effect code here }, [dependency]);</div>
-                    <div class="result-meta">
-                        <div class="language-tag">JavaScript</div>
-                        <div class="author">by ReactNinja</div>
-                        <div class="date">March 27, 2025</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="pagination">
-                <div class="pagination-item active">1</div>
-                <div class="pagination-item">2</div>
-                <div class="pagination-item">3</div>
-                <div class="pagination-item">4</div>
-                <div class="pagination-item">Next</div>
             </div>
         </div>
     </div>
