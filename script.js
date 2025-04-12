@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleHashRouting() {
     const hash = window.location.hash;
 
-    // Default to dashboard if no hash is present
+    // Default to login if no hash is present
     if (!hash || hash === "") {
-      navigateToTab("dashboard");
+      navigateToTab("login");
       return;
     }
 
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         navigateToTab("concept-proof");
         break;
       default:
-        navigateToTab("dashboard"); // Default to dashboard for any other hash
+        navigateToTab("login"); // Default to login for any other hash
     }
   }
 
