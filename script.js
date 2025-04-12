@@ -1,55 +1,70 @@
-// JavaScript for tab navigation in the low-fidelity wireframe
+// JavaScript for tab navigation and responsive features
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Get all tabs
+  // URL hash-based routing
+  function handleHashRouting() {
+    const hash = window.location.hash;
+
+    // Default to dashboard if no hash is present
+    if (!hash || hash === "") {
+      navigateToTab("dashboard");
+      return;
+    }
+
+    // Map hash routes to tab IDs
+    switch (hash) {
+      case "#1":
+        navigateToTab("dashboard");
+        break;
+      case "#2":
+        navigateToTab("login");
+        break;
+      case "#3":
+        navigateToTab("project-view");
+        break;
+      case "#4":
+        navigateToTab("concept-proof");
+        break;
+      default:
+        navigateToTab("dashboard"); // Default to dashboard for any other hash
+    }
+  }
+
+  function navigateToTab(tabId) {
+    // Find the tab with the matching data-tab attribute
+    const targetTab = document.querySelector(`.tab[data-tab="${tabId}"]`);
+    if (targetTab) {
+      // Simulate a click on the tab
+      targetTab.click();
+    }
+  }
+
+  // Run the hash routing on page load
+  handleHashRouting();
+
+  // Listen for hash changes to update the view
+  window.addEventListener("hashchange", handleHashRouting);
+
+  // Tab navigation functionality
   const tabs = document.querySelectorAll(".tab");
-  
-  // Function to navigate to a specific tab
-  function navigateToTab(tabIndex) {
-    if (tabIndex >= 0 && tabIndex < tabs.length) {
-      const tab = tabs[tabIndex];
-      const tabId = tab.getAttribute("data-tab");
-      
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      // Get the tab identifier
+      const tabId = this.getAttribute("data-tab");
+
       // Remove active class from all tabs
-      tabs.forEach((t) => t.classList.remove("active"));
-      
-      // Add active class to target tab
-      tab.classList.add("active");
-      
+      tabs.forEach((tab) => tab.classList.remove("active"));
+
+      // Add active class to clicked tab
+      this.classList.add("active");
+
       // Hide all content sections
       const contentSections = document.querySelectorAll(".wireframe-content");
       contentSections.forEach((section) => section.classList.remove("active"));
-      
+
       // Show the selected content section
       document.getElementById(tabId).classList.add("active");
-    }
-  }
-
-  // URL hash change handler
-  function handleHashChange() {
-    // Get hash without the # symbol
-    const hash = window.location.hash.substring(1);
-    
-    // Check if the hash is a number between 1 and the number of tabs
-    if (/^[1-9]\d*$/.test(hash)) {
-      const tabIndex = parseInt(hash) - 1; // Convert to 0-based index
-      navigateToTab(tabIndex);
-    }
-  }
-
-  // Listen for hash changes
-  window.addEventListener('hashchange', handleHashChange);
-  
-  // Check hash on initial page load
-  handleHashChange();
-
-  // Add click event listener to each tab
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", function () {
-      // Update the URL hash when clicking a tab
-      window.location.hash = (index + 1).toString();
-      
-      // Navigation is handled by the hashchange event
     });
   });
 
@@ -60,6 +75,36 @@ document.addEventListener("DOMContentLoaded", function () {
       formTabs.forEach((t) => t.classList.remove("active"));
       this.classList.add("active");
     });
+  });
+
+  // Concept tab functionality
+  const conceptTabs = document.querySelectorAll(".tab-item");
+  conceptTabs.forEach((tab) => {
+    tab.addEventListener("click", function () {
+      conceptTabs.forEach((t) => t.classList.remove("active"));
+      this.classList.add("active");
+    });
+  });
+
+  // Mobile menu toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      if (mobileMenu.style.display === "flex") {
+        mobileMenu.style.display = "none";
+      } else {
+        mobileMenu.style.display = "flex";
+      }
+    });
+  }
+
+  // Handle window resize to hide/show mobile menu appropriately
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 768 && mobileMenu) {
+      mobileMenu.style.display = "none";
+    }
   });
 
   // Make buttons interactive (just visual feedback)
@@ -75,6 +120,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     button.addEventListener("mouseout", function () {
       this.style.opacity = "1";
+    });
+  });
+
+  // Project cards click interaction
+  const projectCards = document.querySelectorAll(".project-card");
+  projectCards.forEach((card) => {
+    card.addEventListener("click", function () {
+      // This would navigate to project details in a real app
+      // For this wireframe, we'll just simulate by changing tab
+
+      // Only if we're not clicking the "add new" card
+      if (!this.classList.contains("add-new")) {
+        const projectViewTab = document.querySelector(
+          '.tab[data-tab="project-view"]'
+        );
+        if (projectViewTab) {
+          projectViewTab.click();
+        }
+      }
     });
   });
 });
